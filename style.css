@@ -1,0 +1,317 @@
+/* =========================================================
+   DESIGN SYSTEM – INTERNATIONAL TECH STANDARD
+========================================================= */
+:root {
+  --primary: #0ea5e9;
+  --secondary: #22c55e;
+  --accent: #f97316;
+
+  --dark: #0f172a;
+  --text-main: #1e293b;
+  --text-soft: #475569;
+
+  --bg-main: #f8fafc;
+  --glass: rgba(255, 255, 255, 0.92);
+
+  --radius-xl: 36px;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+
+  --shadow-sm: 0 8px 22px rgba(0,0,0,0.08);
+  --shadow-md: 0 22px 55px rgba(0,0,0,0.15);
+  --shadow-lg: 0 45px 95px rgba(0,0,0,0.25);
+
+  --transition: all 0.35s ease;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY – CLEAN & TIGHT
+========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+p {
+  font-size: 1.12rem;
+  line-height: 1.6;          /* REDUCED */
+  color: var(--text-soft);
+  margin-bottom: 1rem;       /* REDUCED */
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+body {
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, #bae6fd, transparent 55%),
+    linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: var(--text-main);
+  max-width: 1150px;
+  margin: auto;
+  padding: 125px 26px 36px;
+  line-height: 1.65;         /* REDUCED */
+  font-size: 1.12rem;
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1150px;
+  padding: 1rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(22px);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+}
+
+.navbar h2 {
+  font-size: 2.1rem;
+  font-weight: 900;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.1rem;
+}
+
+.navbar a {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.2rem;
+  padding: 4rem;
+  background:
+    radial-gradient(circle at top left, #38bdf8, transparent 60%),
+    linear-gradient(135deg, #ffffff, #f1f5f9);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 4rem;
+}
+
+.hero-left h1 {
+  font-size: clamp(3rem, 4.8vw, 4rem);
+  margin-bottom: 1.2rem;
+}
+
+.hero-left h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.5;          /* REDUCED */
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+.profile-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.8)
+  );
+  border-radius: var(--radius-xl);
+  padding: 2.6rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.profile-wrapper:hover {
+  transform: translateY(-8px);
+}
+
+/* PROFILE IMAGE */
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 6px solid #fff;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.35),
+    inset 0 0 0 6px var(--primary);
+  margin-bottom: 1.2rem;
+}
+
+/* PROFILE INFO */
+.profile-info h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.profile-info p {
+  font-size: 1.12rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+section {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: 3.8rem;
+  margin-bottom: 3.6rem;
+  box-shadow: var(--shadow-md);
+  display: none;
+}
+
+section.active {
+  display: block;
+  animation: sectionReveal 0.8s ease forwards;
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+.section-title {
+  display: inline-block;
+  font-size: 2.05rem;
+  font-weight: 900;
+  color: #fff;
+  padding: 0.95rem 2.1rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   TEXT & LISTS (TIGHT)
+========================================================= */
+section p,
+section li {
+  font-size: 1.1rem;
+  line-height: 1.6;          /* REDUCED */
+  color: var(--text-soft);
+}
+
+ul {
+  padding-left: 1.6rem;
+}
+
+ul li {
+  margin-bottom: 0.6rem;     /* REDUCED */
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: 1rem;
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 105px 18px 26px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  section {
+    padding: 2.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 95px 14px 22px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    padding: 0.7rem 1.4rem;
+  }
+}
